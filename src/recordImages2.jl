@@ -1,6 +1,6 @@
-using VideoIO, GLMakie, Printf
-using ColorTypes, FixedPointNumbers, LinearAlgebra, Statistics, ColorSchemeTools
-using DataStructures: CircularBuffer
+# using VideoIO, GLMakie, Printf
+# using ColorTypes, FixedPointNumbers, LinearAlgebra, Statistics, ColorSchemeTools
+# using DataStructures: CircularBuffer
 
 function recordImages_nodarkframe(Tmax = 10, maskidx = 1:(640*360); A = Matrix(I, 3, 3), dev = dev)
 
