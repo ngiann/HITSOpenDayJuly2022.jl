@@ -14,6 +14,18 @@ include("recorddanceactivity.jl")
 
 function start()
 
+    @printf("Listing available cameras (v4l2 must be installed!)\n\n"
+    )
+    run(`v4l2-ctl --list-devices`)
+
+    setcamera(userinput("Please specify which camera to use and press enter\n"))
+
+    @printf("Camera set to %s\n", getcamera())
+
+
+
+
+
     tprint("Please wait until Julia pre-compiles functions")
     
     # do warmup
@@ -39,7 +51,8 @@ function topmenu()
     DONE_red        = false
     DONE_green      = false
     DONE_blue       = false
-
+    DONE_colour_correction = false
+    
     darkframe = nothing
 
     maskindices = nothing
@@ -86,13 +99,19 @@ function topmenu()
             
             DONE_red, yred = recordcolour("red", darkframe, maskindices)
 
+            DONE_colour_correction = false
+
         elseif aux == "4" &&  DONE_mask && DONE_darkframe
             
             DONE_green, ygreen = recordcolour("green", darkframe, maskindices)
 
+            DONE_colour_correction = false
+
         elseif aux == "5" &&  DONE_mask && DONE_darkframe
             
             DONE_blue, yblue = recordcolour("blue", darkframe, maskindices)
+
+            DONE_colour_correction = false
 
         elseif aux == "6" #&&  DONE_mask && DONE_darkframe && DONE_red && DONE_green && DONE_blue
 
@@ -106,7 +125,10 @@ function topmenu()
 
 
         # Check if ready to calculate colour correction
-        if DONE_red && DONE_green && DONE_blue
+        if DONE_red && DONE_green && DONE_blue && ~DONE_colour_correction
+            
+            DONE_colour_correction = true
+
             tprint("\n"*RenderableText(rainbow_maker("Calculated colour correction!"))*"\n")
             local A = getcorrection(yred, ygreen, yblue)
             CorrectionInverseMatrix = A \ I
