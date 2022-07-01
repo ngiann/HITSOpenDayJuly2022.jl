@@ -36,7 +36,7 @@ function maskprocedure()
 
         local val = valuesofoptions[choice]
 
-        local fig = Figure()
+        local fig = GLMakie.Figure()
         
         display(fig)   
 

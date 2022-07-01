@@ -29,7 +29,7 @@ function darkframeprocedure()
        
         local randindex = ceil(Int, length(webcamimages))
        
-        local fig = Figure()
+        local fig = GLMakie.Figure()
         
         display(fig)   
 

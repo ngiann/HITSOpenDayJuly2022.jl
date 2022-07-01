@@ -38,7 +38,7 @@ function recordImages(darkframe, Tmax = 10, maskidx = 1:(640*360); A = Matrix(I,
 
         imgobs = Observable(nextimage())
 
-        fig = Figure(backgroundcolor = :black)
+        fig = GLMakie.Figure(backgroundcolor = :black)
 
         display(fig)   
 
