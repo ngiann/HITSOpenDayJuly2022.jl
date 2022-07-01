@@ -1,5 +1,3 @@
-using Optim
-
 function getcorrection(yred, ygreen, yblue)
 
     xred   = [1 1 1; 0 0 0.0; 0 0 0]
