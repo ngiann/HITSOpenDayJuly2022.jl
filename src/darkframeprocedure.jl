@@ -27,7 +27,7 @@ function darkframeprocedure()
 
     while length(selectedindices) < howmanyimages
        
-        local randindex = ceil(Int, length(webcamimages))
+        local randindex = ceil(Int, rand()*length(webcamimages))
        
         local fig = GLMakie.Figure()
         
