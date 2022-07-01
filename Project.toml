@@ -1,0 +1,13 @@
+name = "HITSOpenDayJuly2022"
+uuid = "4ead5c4e-c2ff-4d62-91d1-2960feabfb2a"
+authors = ["ngiann <ngiann@gmail.com> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
