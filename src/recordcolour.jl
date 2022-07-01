@@ -35,7 +35,7 @@ function recordcolour(clr, darkframe, maskindices)
 
         image(fig[1,1], webcamimages[randindex])
 
-        local choice = request("Is this frame a good represenative of a $clr frame?", RadioMenu(options))
+        local choice = request("Is this frame a good representative of a $clr frame?", RadioMenu(options))
 
         if choice == 1
             push!(selectedindices, randindex)

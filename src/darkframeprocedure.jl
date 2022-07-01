@@ -35,7 +35,7 @@ function darkframeprocedure()
 
         image(fig[1,1], webcamimages[randindex])
 
-        local choice = request("Is this frame represenative of the darkframe?", RadioMenu(options))
+        local choice = request("Is this frame representative of the darkframe?", RadioMenu(options))
 
         if choice == 1
             push!(selectedindices, randindex)
