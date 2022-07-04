@@ -24,7 +24,7 @@ function infer(tblue, tred, yblue, yred; σ = 0.01, subset = 75, delays = delays
 
     # Plot posterior
 
-    figure(1); cla()
+    figure(11); cla()
 
     PyPlot.plot(delays, getprobabilities(out))
 
