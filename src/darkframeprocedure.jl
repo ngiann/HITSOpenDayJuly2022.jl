@@ -49,19 +49,10 @@ function darkframeprocedure()
         
     end
 
-    stdred = std(redflux)
-
-    stdblue = std(blueflux)
-
-    tprint(RenderableText("Standard deviation for {blue}blue{/blue} flux is " * string(stdred)))
-    tprint(RenderableText("Standard deviation for {red}red{/red} flux is " * string(stdblue)))
-    
-    sleep(3)
-
     DONE_darkframe = length(selectedindices) == howmanyimages
     
     darkframe = DONE_darkframe ? mean(webcamimages[selectedindices]) : nothing
 
-    return DONE_darkframe, darkframe, stdblue, stdred
+    return DONE_darkframe, darkframe
 
 end
