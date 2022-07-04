@@ -22,18 +22,5 @@ function infer(tblue, tred, yblue, yred, σblue, σred; subset = 75, delays = de
 
     out = @showprogress pmap(d -> (@suppress performcv(tobs, yobs, σobs, iterations=1000, numberofrestarts=3, delays = [0; d], kernel = GPCC.matern32, numberoffolds=5, rhomax=1000)), delays)
 
-    # Plot posterior
-
-    figure(11); cla()
-
-    PyPlot.plot(delays, getprobabilities(out))
-
-    xlabel("Kandidatenverschiebungen")
-
-    ylabel("Wahrscheinlichkeit")
-
-    title("Ergebnis", fontsize=18)
-
-    getprobabilities(out)
 
 end
