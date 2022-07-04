@@ -17,8 +17,8 @@ function noiseestimation(darkframe, maskindices, CorrectionInverseMatrix)
 
     stdblue = std(blueflux)
     
-    tprint(RenderableText("Standard deviation for {blue}blue{/blue} flux is " * string(stdred)))
-    tprint(RenderableText("Standard deviation for {red}red{/red} flux is " * string(stdblue)))
+    tprint(RenderableText("Standard deviation for {blue}blue{/blue} flux is " * string(stdblue)))
+    tprint(RenderableText("Standard deviation for {red}red{/red} flux is " * string(stdred)))
     
     sleep(3)
 
