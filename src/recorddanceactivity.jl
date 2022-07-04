@@ -1,6 +1,6 @@
 function recorddanceactivity(darkframe, maskindices, CorrectionInverseMatrix, σblue, σred)
 
-    local webcamimages, timeinsecs, redflux, greenflux, blueflux = recordImages(darkframe, 30, maskindices, A=CorrectionInverseMatrix, dev=GLOBALDEV);
+    webcamimages, timeinsecs, redflux, greenflux, blueflux = recordImages(darkframe, 30, maskindices, A=CorrectionInverseMatrix, dev=GLOBALDEV);
 
     
     nlags = length(timeinsecs)-1
