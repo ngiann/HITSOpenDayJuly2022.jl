@@ -10,7 +10,7 @@ function darkframeprocedure()
 
     pressanykey()
 
-    webcamimages, = recordImages_nodarkframe(4; A = Matrix(I, 3, 3), dev=GLOBALDEV)
+    webcamimages, _timeinsecs, redflux, _greenflux, blueflux = recordImages_nodarkframe(4; A = Matrix(I, 3, 3), dev=GLOBALDEV)
     
 
     tprint(Panel(RenderableText("\nThe recording was completed. You will now be shown a few frames and you can choose which ones look representative. Please press enter to continue.",width=60),
@@ -49,11 +49,19 @@ function darkframeprocedure()
         
     end
 
+    stdred = std(redflux)
+
+    stdblue = std(blueflux)
+
+    tprint(RenderableText("Standard deviation for {blue}blue{/blue} flux is " * string(stdred)))
+    tprint(RenderableText("Standard deviation for {red}red{/red} flux is " * string(stdblue)))
     
+    sleep(3)
+
     DONE_darkframe = length(selectedindices) == howmanyimages
     
     darkframe = DONE_darkframe ? mean(webcamimages[selectedindices]) : nothing
 
-    return DONE_darkframe, darkframe
+    return DONE_darkframe, darkframe, stdblue, stdred
 
 end

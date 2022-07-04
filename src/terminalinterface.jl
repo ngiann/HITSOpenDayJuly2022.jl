@@ -59,6 +59,8 @@ function topmenu()
 
     yred, yblue, ygreen = zeros(3), zeros(3), zeros(3)
 
+    stdblue, stdred = 0.0, 0.0
+
     CorrectionInverseMatrix = zeros(3, 3)
 
     while (true)
@@ -89,7 +91,7 @@ function topmenu()
         
         elseif aux == "1" # Record darkframe
         
-            DONE_darkframe, darkframe = darkframeprocedure()
+            DONE_darkframe, darkframe, stdblue, stdred = darkframeprocedure()
         
         elseif aux == "2"  # Define mask indices
             
@@ -115,7 +117,7 @@ function topmenu()
 
         elseif aux == "6" #&&  DONE_mask && DONE_darkframe && DONE_red && DONE_green && DONE_blue
 
-            recorddanceactivity(darkframe, maskindices, CorrectionInverseMatrix)
+            recorddanceactivity(darkframe, maskindices, CorrectionInverseMatrix, stdblue, stdred)
 
         else
 
