@@ -1,7 +1,7 @@
 name = "HITSOpenDayJuly2022"
 uuid = "4ead5c4e-c2ff-4d62-91d1-2960feabfb2a"
 authors = ["ngiann <ngiann@gmail.com> and contributors"]
-version = "0.1.0"
+version = "0.2.0"
 
 [deps]
 ColorSchemeTools = "d3e213a1-5e82-5c18-bb32-2a58a99f8c46"
