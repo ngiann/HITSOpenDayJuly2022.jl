@@ -13,7 +13,7 @@ function recordcolour(clr, darkframe, maskindices)
     webcamimages, = recordImages(darkframe, 2, maskindices; A = Matrix(I, 3, 3), dev=GLOBALDEV)
     
 
-    tprint(Panel(RenderableText("\nThe recording was completed. You will now need to choose representaive frames. Please press enter to continue.",width=60),
+    tprint(Panel(RenderableText("\nThe recording was completed. You will now need to choose representative frames. Please press enter to continue.",width=60),
     title="{$clr bold}Record $clr colour{/$clr bold}", 
     title_justify=:centre))
 
