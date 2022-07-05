@@ -24,6 +24,8 @@ module HITSOpenDayJuly2022
 
     include("infer.jl")
 
+    include("noiseestimation.jl")
+
     function setcamera(x)
         global GLOBALDEV = x
     end
@@ -32,7 +34,7 @@ module HITSOpenDayJuly2022
         GLOBALDEV
     end
 
-    export infer, start, setcamera, getcamera
+    export start#infer, start, setcamera, getcamera
 
 
 end
