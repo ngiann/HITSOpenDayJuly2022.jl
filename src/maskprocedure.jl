@@ -21,7 +21,7 @@ function maskprocedure()
 
     DONE_mask = false
 
-    valuesofoptions = 0:0.1:1
+    valuesofoptions = 0:0.025:1
 
     options = map(string, valuesofoptions)
 

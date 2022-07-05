@@ -33,8 +33,9 @@ function start()
     
     try 
      topmenu()
-    catch
+    catch(ex)
         tprint("{red bold}Did you follow the sequence of steps? Please try again{/red bold}\n")
+        display(ex)
     finally  
         tprint("\nUse {green}start(){/green} to restart menu. Goodbye!\n")
             
@@ -52,12 +53,15 @@ function topmenu()
     DONE_green      = false
     DONE_blue       = false
     DONE_colour_correction = false
-    
+    DONE_noise      = false
+
     darkframe = nothing
 
     maskindices = nothing
 
     yred, yblue, ygreen = zeros(3), zeros(3), zeros(3)
+
+    stdblue, stdred = 0.0, 0.0
 
     CorrectionInverseMatrix = zeros(3, 3)
 
@@ -69,8 +73,8 @@ function topmenu()
 
         # Present options
 
-        tprint(Panel(RenderableText("\nPlease follow sequence of steps\n"), Panel(RenderableText("\n1 Record darkframe "*isdone(DONE_darkframe)*"\n\n2 Define mask indices "*isdone(DONE_mask)*"\n\n3{red} Record red colour{/red} "*isdone(DONE_red)*"\n\n4{green} Record green colour{/green} "*isdone(DONE_green)*"\n\n5{blue} Record blue colour{/blue} "*isdone(DONE_blue)*"\n\n"), width=40, title="Setup",justify=:center),
-        Panel(RenderableText("\n6 "*rainbow_maker("Record dance activity\n")),width=40, title="Main",justify=:center),
+        tprint(Panel(RenderableText("\nPlease follow sequence of steps\n"), Panel(RenderableText("\n1 Record darkframe "*isdone(DONE_darkframe)*"\n\n2 Define mask indices "*isdone(DONE_mask)*"\n\n3{red} Record red colour{/red} "*isdone(DONE_red)*"\n\n4{green} Record green colour{/green} "*isdone(DONE_green)*"\n\n5{blue} Record blue colour{/blue} "*isdone(DONE_blue)*"\n\n6 Noise estimation "*isdone(DONE_noise)*"\n\n"), width=40, title="Setup",justify=:center),
+        Panel(RenderableText("\n7 "*rainbow_maker("Record dance activity\n")),width=40, title="Main",justify=:center),
         title="{$pink bold}Top menu{/$pink bold}", 
         title_justify=:centre,subtitle="Choose 0 to exit",
         subtitle_style="dim",
@@ -113,9 +117,15 @@ function topmenu()
 
             DONE_colour_correction = false
 
-        elseif aux == "6" #&&  DONE_mask && DONE_darkframe && DONE_red && DONE_green && DONE_blue
+        elseif aux == "6"# &&  DONE_mask && DONE_darkframe && DONE_colour_correction
+            
+            stdblue, stdred = noiseestimation(darkframe, maskindices, CorrectionInverseMatrix)
 
-            recorddanceactivity(darkframe, maskindices, CorrectionInverseMatrix)
+            DONE_noise = true
+
+        elseif aux == "7" #&&  DONE_mask && DONE_darkframe && DONE_red && DONE_green && DONE_blue && DONE_noise
+
+            recorddanceactivity(darkframe, maskindices, CorrectionInverseMatrix, stdblue, stdred)
 
         else
 
