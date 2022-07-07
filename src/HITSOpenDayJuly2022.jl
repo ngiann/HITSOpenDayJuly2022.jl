@@ -6,9 +6,9 @@ module HITSOpenDayJuly2022
     using REPL.TerminalMenus
     using Term, Printf
     using StatsBase, Statistics, Random
-    using PyPlot, VideoIO, Distributed
+    using VideoIO, Distributed
     using GLMakie
-    using ColorTypes, FixedPointNumbers, LinearAlgebra, ColorSchemeTools
+    using FixedPointNumbers, LinearAlgebra, ColorTypes#, ColorSchemeTools
     using DataStructures: CircularBuffer
     using Optim
 
