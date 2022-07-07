@@ -23,6 +23,9 @@ function recorddanceactivity(darkframe, maskindices, CorrectionInverseMatrix, σ
     ax1 = Axis(fig[1,1], backgroundcolor = :black, title = "Geschätzte Zeitverschiebung (1)", xlabel = "Zeit", ylabel = "Wahrscheinlichkeit")
     ax2 = Axis(fig[2,1], backgroundcolor = :black, title = "Geschätzte Zeitverschiebung (2)", xlabel = "Zeit", ylabel = "Wahrscheinlichkeit")
 
+    ax1.xticks = LinearTicks(20)
+    ax2.xticks = LinearTicks(20)
+
     lines!(ax1, timeinsecs[1:nlags],exp.(crosscor(blueflux,redflux,1:nlags)),color = :green)
 
     lines!(ax2, delays, getprobabilities(out), color = :green)
