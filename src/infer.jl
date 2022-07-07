@@ -20,7 +20,7 @@ function infer(tblue, tred, yblue, yred, σblue, σred; subset = 75, delays = de
 
     # call GPCC
 
-    out = @showprogress pmap(d -> (@suppress performcv(tobs, yobs, σobs, iterations=1000, numberofrestarts=3, delays = [0; d], kernel = GPCC.matern32, numberoffolds=5, rhomax=1000)), delays)
+    out = @showprogress pmap(d -> (@suppress performcv(tobs, yobs, σobs, iterations=1000, numberofrestarts=3, delays = [0; d], kernel = GPCC.matern32, numberoffolds=5, rhomax=200)), delays)
 
 
 end
