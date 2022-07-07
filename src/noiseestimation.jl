@@ -1,9 +1,9 @@
 function noiseestimation(darkframe, maskindices, CorrectionInverseMatrix)
 
 
-    tprint(Panel(RenderableText("\nWe will estimate the noise in the darkframe after having performed colour correction and specified the mask.
+    tprint(Panel(RenderableText("\nWe will estimate the noise after having performed colour correction and specified the mask.
     \nBefore proceeding:
-    \n • Ensure that the screen shows no activity.
+    \n • Ensure that the screen shows the constant disk image.
     \n • Make sure the camera is correctly pointing to the screen.
     \nWe will now record a few frames. Press enter to continue with recording.",width=60),
     title="{bold}Record darkframe{/bold}", 
